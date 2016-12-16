@@ -1,0 +1,304 @@
+option java_package = "com.fish.yz.protobuf";
+option java_outer_classname = "Protocol";
+
+//请求头必须由其来包含
+message Request {
+	enum CmdIdType{
+		ConnectServerRequest	= 1;
+		ConnectServerReply 		= 2;
+		EntityMessage 			= 3;
+		FunctionalMessage		= 4;
+		DBMessage				= 5;
+		GGMessage				= 6;
+	}
+	required CmdIdType cmdId = 1;
+	extensions 100 to max;
+}
+
+// 以下消息都有一个 bytes  routes 这是因为消息可能在不同服务器之间转发发，需要添加的额外的路由信息
+
+
+// ConnectServerRequest和ConnectServerReply是客户端和服务端建立连接后的第一个RPC请求
+// 该请求不包括认证过程，认证过程由Entity去处理，这个只是建立连接，从而启动Entity通信流程
+message ConnectServerRequest {
+	extend Request{
+		optional ConnectServerRequest request = 100;
+	}
+
+	enum RequestType {
+		NEW_CONNECTION = 0;	// 新登录
+		RE_CONNECTION = 1;	// 断线快速重连
+		BIND_AVATAR = 2;	// 重新绑定entity到avatar
+	}
+	optional bytes  routes = 1;
+	required RequestType type = 2;  // 认证类型
+	optional bytes  deviceid = 3;   // 设备 id, 标示客户端，可用mac地址
+	optional bytes  entityid = 4; 	// 断线重连或者BIND_AVATAR的时候需要的avatar entity id
+}
+
+// Client的连接服务器的信息
+message ConnectServerReply{
+	extend Request{
+		optional ConnectServerReply request = 101;
+	}
+
+	enum ReplyType {
+		BUSY = 0;					// 服务端忙，请重试
+		CONNECTED = 1;				// 初次连接成功
+		RECONNECT_SUCCEEDED = 2;  	//断线重连成功
+		RECONNECT_FAILED = 3;		//断线快速重练失败，需重新登录
+		FORBIDDEN = 4;				//服务器禁止连接
+		MAX_CONNECTION = 5;			//Gate连接数达上限
+	}
+	optional bytes routes = 1;
+	required ReplyType type = 2 [default = BUSY];
+	optional bytes entityid = 3;	//当前avatar的id, 用于重连恢复
+}
+
+// Entity的RPC调用
+message EntityMessage {
+	extend Request{
+		optional EntityMessage request = 102;
+	}
+
+	optional bytes routes = 1;
+	required bytes id = 2; 			// Entity的id
+	required bytes method = 3; 		// Entity的方法名
+	optional bytes parameters = 4;
+}
+
+// 功能性调用 和 gamemanager 间的通信调用
+message FunctionalMessage {
+	extend Request{
+		optional FunctionalMessage request = 103;
+	}
+	enum FuncType{
+		REG_GATE 				= 1;
+		REG_GAME 				= 2;
+		REG_DB 					= 3;
+		SEND_GAMEINFO 			= 4;
+		REG_ENTITY 				= 5;
+		UNREG_ENTITY 			= 6;
+		FORWARD_ENTITY_MESSAGE 	= 7;
+		GMRETURNVAL				= 8;
+	}
+
+	optional bytes routes = 1;
+	required FuncType func = 2;
+	optional bytes parameters = 3;
+}
+
+// EntityInfo
+message EntityInfo {
+	optional bytes routes = 1;
+	optional bytes type = 2; 	// 创建Entity的类型
+	optional bytes id = 3; 		// 创建Entity的id
+	optional bytes info = 4; 	//	Entity具体的信息
+}
+
+message ClientInfo {
+	optional bytes  ip = 1; 		// 客户端的ip
+	optional int32  port = 2;  		// 客户端的端口
+	required bytes  clientid = 3; 	// 客户端标识
+	required bytes  sessionid = 4;	// 服务器标识
+	required bytes  gateid = 5;		// gate 服务器id
+}
+
+// 服务器的服务接入点
+message ServerInfo {
+	required bytes  ip = 1; 	// server的ip
+	required int32  port = 2;  	// server的端口
+}
+
+message GameServerInfos {
+	repeated ServerInfo gameservers = 1 ;
+}
+
+message EntityMailbox {
+	required bytes entityid = 1; // entity 标示，从而可以全局唯一
+	optional ServerInfo serverinfo = 2;	// entity所在的Server Info
+}
+
+message GlobalEntityRegMsg {
+	required bytes entity_uniq_name = 1; 	// entity 标示，需要全局唯一
+	optional EntityMailbox mailbox 	= 2;   	// entity的mailbox
+	optional bytes callback_id 		= 3;
+}
+
+// 通过IGameManager转发的EntityMessage的route会加入如下的头
+message ForwardMessageHeader {
+	optional EntityMailbox  srcmb 	= 1;
+	required EntityMailbox  dstmb 	= 2;
+	optional bytes callback_id 		= 3;
+}
+
+// game 调用game manager之后，一些函数需要gamemanager的callback
+message GmReturnVal{
+	enum CallbackType {
+		NO_SUCH_CALLBACK 	= 0;	// null
+		REG_ENTITY_MAILBOX 	= 1;	// reg_entity_mailbox
+		FORWARD_ENTITY_MSG 	= 2;	// forward_entity_message
+	}
+	required CallbackType type 	= 1 [default = NO_SUCH_CALLBACK]; 	// callback type
+	required bytes callback_id 	= 2;								// call back id，在rpc调用的时候传过来
+	optional bool return_status = 3; 								//如果只是bool返回值，用这个变量
+	optional bytes return_val 	= 4;								// 复杂的返回值，编码成字符串
+	optional bytes error_msg 	= 5;								// 如果出错，错误消息
+}
+
+/////////////////// game gate client 相关 ///////////////////////////////////
+// 数据库操作调用
+message GGMessage {
+	extend Request{
+		optional GGMessage request = 105;
+	}
+	enum GGType{
+		CreateEntity 			= 1;
+		DestroyEntity 			= 2;
+	}
+
+	optional bytes routes = 1;
+	required GGType type = 2;
+	optional bytes parameters = 3;
+}
+
+
+/////////////////////////////////////数据库操作相关////////////////////////////////////
+// 数据库操作调用
+message DBMessage {
+	extend Request{
+		optional DBMessage request = 104;
+	}
+	enum OpType{
+		CreateCollectionRequest 	= 1;
+		CountDocRequest 			= 2;
+		FindDocRequest 				= 3;
+		UpdateDocRequest 			= 4;
+		InsertDocRequest 			= 5;
+		DeleteDocRequest 			= 6;
+		FindAndModifyDocRequest 	= 7;
+
+		CreateCollectionReply		= 8;
+		CountDocReply				= 9;
+		FindDocReply				= 10;
+		UpdateDocReply				= 11;
+		InsertDocReply				= 12;
+		DeleteDocReply				= 13;
+		FindAndModifyDocReply		= 14;
+
+	}
+
+	optional bytes routes = 1;
+	required OpType op = 2;
+	optional bytes parameters = 3;
+}
+
+message	CreateCollectionRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ;
+	required bytes collection = 3;
+}
+
+message CountDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; // db name
+	required bytes collection = 3 ;	// collection name
+	optional bytes query = 4; // bson 编码的query（或者spec）
+}
+
+message	FindDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; 						// db name
+	required bytes collection = 3;					// collection name
+	required bytes query = 4; 						// bson 编码的query（或者spec）
+	optional bytes fields = 5; 						// bson编码的dict key
+	optional int32 limit = 6  [default = 1];		//需要多少个结果返回
+}
+
+message	UpdateDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; // db name
+	required bytes collection = 3 ;	// collection name
+	required bytes query = 4; // bson 编码的query
+	required bytes doc = 5; // bson 编码的dict,用来更新
+	optional bool upset = 6 [default = false]; // 如果不存在是否插入
+	optional bool multi = 7 [default = false]; // 是否更新多个
+}
+
+message	InsertDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; 						// db name
+	required bytes collection = 3 ;					// collection name
+	required bytes doc = 4; 						// bson 编码的dict,用来更新
+}
+
+message	DeleteDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; // db name
+	required bytes collection = 3 ;	// collection name
+	required bytes query = 4; // bson 编码的query
+}
+
+message	FindAndModifyDocRequest {
+	optional bytes callback_id = 1;
+	required bytes db = 2 ; 						// db name
+	required bytes collection = 3;					// collection name
+	required bytes query = 4; 						// bson 编码的query（或者spec）
+	optional bytes update = 5; 						// bson编码的dict
+	optional bytes replace = 6; 					// 是否remove找到的数据
+	optional bool remove = 7 [default = false]; 	// 是否remove找到的数据
+	optional bool upset = 8 [default = false]; 		// 如果不存在是否插入
+	optional bool rettype = 9 [default = false]; 	// 返回值，操作之前的false， 操作之后的true
+}
+
+message DbStatusMessage {
+	enum DbStatus {
+		CONNECTED = 0;	// DbManager和后台mongo连接一切正常
+		CONNECTION_FAILED = 1;	// DbManager和mongodb的连接失败了，严重错误
+	}
+	required DbStatus status = 1; // find操作成功是否成功
+}
+
+message FindDocReply {
+	required bytes callback_id = 1;
+	required bool status = 2; // find操作成功是否成功
+	repeated bytes docs = 3; // bson 编码的doc列表
+}
+
+message CountDocReply {
+	required bytes callback_id = 1;
+	required bool status = 2; // find操作成功是否成功
+	required int32 count = 3; // bson 编码的doc列表
+}
+
+message UpdateDocReply {
+	optional bytes callback_id = 1;
+	required bool status = 2; // find操作成功是否成功
+}
+
+message InsertDocReply {
+	optional bytes callback_id = 1;
+	required bool status = 2; // insert操作成功是否成功
+}
+
+message DeleteDocReply {
+	optional bytes callback_id = 1;
+	required bool status = 2; // delete操作成功是否成功
+}
+
+message FindAndModifyDocReply {
+	optional bytes callback_id = 1;
+	required bool status = 2; // find操作成功是否成功
+	optional bytes doc = 3; // bson 编码的doc列表
+}
+
+message CreateCollectionReply {
+	enum CrateCollectionStatus {
+		CREATE_SUCC = 0;	//建立成功
+		ALREADY_EXISTED = 1;//已经存在
+		CREATE_FAILED = 2;	//其它错误
+	}
+
+	optional bytes callback_id = 1;
+	required CrateCollectionStatus status = 2;
+}

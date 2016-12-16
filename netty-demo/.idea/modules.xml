@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../db-server/db-server.iml" filepath="$PROJECT_DIR$/../db-server/db-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../game-server/game-server.iml" filepath="$PROJECT_DIR$/../game-server/game-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../gamemanager-server/gamemanager-server.iml" filepath="$PROJECT_DIR$/../gamemanager-server/gamemanager-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gate-server.iml" filepath="$PROJECT_DIR$/gate-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../netty-client-demo/netty-client-demo.iml" filepath="$PROJECT_DIR$/../netty-client-demo/netty-client-demo.iml" />
+    </modules>
+  </component>
+</project>
