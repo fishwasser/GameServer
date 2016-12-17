@@ -13,6 +13,8 @@ import java.util.Map;
 public class Repo {
     public Map<String, ClientProxy> clients = new HashMap<String, ClientProxy>();
     public Map<ByteString, DefaultCallBack> callbacks = new HashMap<ByteString, DefaultCallBack>();
+    public Map<String, Protocol.EntityMailbox> entities = new HashMap<String, Protocol.EntityMailbox>();
+
     public Protocol.ServerInfo serverInfo;
     private static Repo ins = null;
 

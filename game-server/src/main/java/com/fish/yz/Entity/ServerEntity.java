@@ -1,6 +1,8 @@
 package com.fish.yz.Entity;
 
+import com.fish.yz.CallBack;
 import com.fish.yz.ClientProxy;
+import com.fish.yz.Repo;
 import com.fish.yz.protobuf.Protocol;
 import com.google.protobuf.ByteString;
 import org.bson.types.ObjectId;
@@ -57,6 +59,27 @@ public class ServerEntity {
 		other.onBecomePlayer();
 		this.proxy = null;
 	}
+
+    public void callServerMethod(Protocol.EntityMailbox dstMb, ServerEntity entity, String methodName, String parameters, CallBack cb){
+        Protocol.ForwardMessageHeader.Builder fmsg = Protocol.ForwardMessageHeader.newBuilder();
+        Protocol.EntityMailbox.Builder mb = Protocol.EntityMailbox.newBuilder();
+        mb.setEntityid(entity.getId());
+        mb.setServerinfo(Repo.instance().serverInfo);
+        fmsg.setSrcmb(mb);
+        fmsg.setDstmb(dstMb);
+
+        Protocol.EntityMessage.Builder emb = Protocol.EntityMessage.newBuilder();
+        emb.setId(dstMb.getEntityid());
+        emb.setMethod(ByteString.copyFromUtf8(methodName));
+        if (null != parameters && !"".equals(parameters))
+            emb.setParameters(ByteString.copyFromUtf8(parameters));
+        emb.setRoutes(fmsg.build().toByteString());
+
+        Protocol.Request.Builder rb = Protocol.Request.newBuilder();
+        rb.setCmdId(Protocol.Request.CmdIdType.EntityMessage);
+        rb.setExtension(Protocol.EntityMessage.request, emb.build());
+    }
+
 
 	public void save(){
 		System.out.println("i want to save but not do it");
