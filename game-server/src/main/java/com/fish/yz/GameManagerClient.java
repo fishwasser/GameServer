@@ -98,7 +98,7 @@ public class GameManagerClient {
 		requestBuilder.setCmdId(Protocol.Request.CmdIdType.FunctionalMessage);
 		Protocol.FunctionalMessage.Builder fmBuilder = Protocol.FunctionalMessage.newBuilder();
 		fmBuilder.setFunc(Protocol.FunctionalMessage.FuncType.REG_GAME);
-		fmBuilder.setParameters(ByteString.copyFromUtf8(Config.instance().get("game1.port")));
+		fmBuilder.setParameters(ByteString.copyFromUtf8(Repo.instance().port+""));
 
 		requestBuilder.setExtension(Protocol.FunctionalMessage.request, fmBuilder.build());
 		Protocol.Request request = requestBuilder.build();
@@ -112,6 +112,8 @@ public class GameManagerClient {
 		Protocol.EntityMailbox.Builder mb = Protocol.EntityMailbox.newBuilder();
 		mb.setEntityid(entity.getId());
 		mb.setServerinfo(Repo.instance().serverInfo);
+		if (callback != null)
+			gre.setCallbackId(callback.getId());
 		gre.setMailbox(mb);
 
 		Protocol.FunctionalMessage.Builder fb = Protocol.FunctionalMessage.newBuilder();
@@ -147,6 +149,8 @@ public class GameManagerClient {
 		mb.setServerinfo(Repo.instance().serverInfo);
 		fmsg.setSrcmb(mb);
 		fmsg.setDstmb(dstMb);
+        if (cb != null)
+            fmsg.setCallbackId(cb.getId());
 
 		Protocol.EntityMessage.Builder emb = Protocol.EntityMessage.newBuilder();
 		emb.setId(dstMb.getEntityid());

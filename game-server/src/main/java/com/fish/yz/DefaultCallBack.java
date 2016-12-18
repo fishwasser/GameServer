@@ -11,12 +11,18 @@ import org.bson.types.ObjectId;
 public abstract class DefaultCallBack implements CallBack {
 	public ObjectId id;
 	public ByteString bsid;
+	public Protocol.Request.CmdIdType careType = Protocol.Request.CmdIdType.DBMessage;
 
-	public DefaultCallBack(){
-		this(ObjectId.get());
+    public DefaultCallBack(){
+        this(ObjectId.get(), Protocol.Request.CmdIdType.DBMessage);
+    }
+
+	public DefaultCallBack(Protocol.Request.CmdIdType careType){
+	    this(ObjectId.get(), careType);
 	}
 
-	public DefaultCallBack(ObjectId id){
+	public DefaultCallBack(ObjectId id, Protocol.Request.CmdIdType careType){
+	    this.careType = careType;
 		this.id = id;
 		this.bsid = ByteString.copyFromUtf8(this.id.toString());
 		Repo.instance().callbacks.put(this.bsid, this);
@@ -24,13 +30,22 @@ public abstract class DefaultCallBack implements CallBack {
 
 	public void onResult(Protocol.Request request) {
 		Repo.instance().callbacks.remove(this.bsid);
-		Protocol.DBMessage msg = request.getExtension(Protocol.DBMessage.request);
-		onCompleted(msg);
+		switch (careType){
+            case DBMessage:
+                onCompleted(request.getExtension(Protocol.DBMessage.request));
+            case FunctionalMessage:
+                onCompleted(request.getExtension(Protocol.FunctionalMessage.request));
+        }
 	}
 
-	public abstract void onCompleted(Protocol.DBMessage msg);
+	public void onCompleted(Protocol.DBMessage msg){
+    }
 
+    public void onCompleted(Protocol.FunctionalMessage msg){
+    }
 
+    public void onCompleted(Protocol.EntityMessage msg){
+    }
 
 	public ByteString getId(){
 		return this.bsid;

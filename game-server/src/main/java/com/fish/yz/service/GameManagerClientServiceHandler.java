@@ -1,9 +1,11 @@
 package com.fish.yz.service;
 
+import com.fish.yz.CallBack;
 import com.fish.yz.GameManagerClient;
 import com.fish.yz.Repo;
 import com.fish.yz.ServerInfoHolder;
 import com.fish.yz.protobuf.Protocol;
+import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -38,7 +40,7 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 						forwardEntityMessage(channelHandlerContext, fm);
 						break;
 					case GMRETURNVAL:
-						gmReturn(channelHandlerContext, fm);
+						gmReturn(channelHandlerContext, request);
 						break;
 				}
 				break;
@@ -46,19 +48,30 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 	}
 
 	public void regEntity(ChannelHandlerContext ctx, Protocol.FunctionalMessage fm) throws InvalidProtocolBufferException {
-		System.out.println("reg entity todo but not do");
+		Protocol.GlobalEntityRegMsg msg = Protocol.GlobalEntityRegMsg.parseFrom(fm.getParameters());
+        System.out.println("reg entity todo but not do " + msg);
+		Repo.instance().entities.put(msg.getEntityUniqName().toStringUtf8(), msg.getMailbox());
 	}
 
 	public void unregEntity(ChannelHandlerContext ctx, Protocol.FunctionalMessage fm) throws InvalidProtocolBufferException {
-		System.out.println("unreg entity todo but not do");
+		Protocol.GlobalEntityRegMsg msg = Protocol.GlobalEntityRegMsg.parseFrom(fm.getParameters());
+        System.out.println("unreg entity todo but not do " + msg);
+		Repo.instance().entities.remove(msg.getEntityUniqName().toStringUtf8());
 	}
 
 	public void forwardEntityMessage(ChannelHandlerContext ctx, Protocol.FunctionalMessage fm) throws InvalidProtocolBufferException {
 		System.out.println("forward entity message todo but not do");
 	}
 
-	public void gmReturn(ChannelHandlerContext ctx, Protocol.FunctionalMessage fm) throws InvalidProtocolBufferException {
-		System.out.println("gm return todo but not do");
+	public void gmReturn(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {
+        Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);
+        Protocol.GmReturnVal val = Protocol.GmReturnVal.parseFrom(fm.getParameters());
+        ByteString id = val.getCallbackId();
+        if (Repo.instance().callbacks.containsKey(id)){
+            CallBack cb = Repo.instance().callbacks.get(id);
+            cb.onResult(request);
+        }
+	    System.out.println("gm return todo but not do");
 	}
 
 	// 获取所有的game的信息, 暂时还没指定有什么用呢

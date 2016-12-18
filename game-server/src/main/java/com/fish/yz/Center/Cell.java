@@ -21,8 +21,15 @@ public class Cell extends ServerEntity {
         super(entityId);
     }
 
-    public void startConnect(String centerName){
+    public void setCenterName(String centerName){
         this.centerName = centerName;
+    }
+
+    public void startConnect(){
+        if (this.centerName == null || "".equals(this.centerName)){
+            System.out.println("please set center name before connect!!");
+            return;
+        }
         Protocol.EntityMailbox centerMb = GameAPI.getGlobalEntityMailbox(centerName);
         Protocol.EntityMailbox.Builder thisMb = Protocol.EntityMailbox.newBuilder();
         thisMb.setEntityid(this.getId());

@@ -15,6 +15,9 @@ public class Repo {
     public Map<ByteString, DefaultCallBack> callbacks = new HashMap<ByteString, DefaultCallBack>();
     public Map<String, Protocol.EntityMailbox> entities = new HashMap<String, Protocol.EntityMailbox>();
 
+    public String ip;
+    public int port;
+
     public Protocol.ServerInfo serverInfo;
     private static Repo ins = null;
 

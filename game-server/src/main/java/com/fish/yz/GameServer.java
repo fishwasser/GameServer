@@ -1,5 +1,6 @@
 package com.fish.yz;
 
+import com.fish.yz.Entity.ServerStart;
 import com.fish.yz.protobuf.Protocol;
 
 import com.fish.yz.service.GameServiceHandler;
@@ -20,18 +21,18 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
  *
  */
 public class GameServer {
-    private String ip;
-    private int port;
     private static final int BIZGROUPSIZE = Runtime.getRuntime().availableProcessors() * 2;
     private static final int BIZTHREADSIZE = 10;
     private static ExtensionRegistry registry = ExtensionRegistry.newInstance();
+    private static int game;
 
     public GameServer(){
-        this.ip = Config.instance().get("game1.ip");
-        this.port = Integer.parseInt(Config.instance().get("game1.port"));
+        String tmp = "game" + game;
+        Repo.instance().ip = Config.instance().get(tmp + ".ip");
+        Repo.instance().port = Integer.parseInt(Config.instance().get(tmp + ".port"));
 	    Protocol.ServerInfo.Builder sb = Protocol.ServerInfo.newBuilder();
-	    sb.setIp(ByteString.copyFromUtf8(ip));
-	    sb.setPort(port);
+	    sb.setIp(ByteString.copyFromUtf8(Repo.instance().ip));
+	    sb.setPort(Repo.instance().port);
 	    Repo.instance().serverInfo = sb.build();
     }
 
@@ -58,7 +59,7 @@ public class GameServer {
                 pipeline.addLast(new GameServiceHandler());
             }
         });
-        ChannelFuture f = bootstrap.bind(this.ip, this.port).sync();
+        ChannelFuture f = bootstrap.bind(Repo.instance().ip, Repo.instance().port).sync();
         f.channel().closeFuture().sync();
     }
 
@@ -84,15 +85,36 @@ public class GameServer {
 		System.out.println("db server connected!");
 	}
 
+	public void start(ServerStart start){
+        start.startGame();
+    }
+
+    public void checkStartSuccess(ServerStart start){
+        while (!start.hasStarted()){
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("start server success!!!");
+    }
+
     public static void main(String[] args) throws Exception {
         System.out.println("start game server...");
-        for (int i = 0; i < args.length; i++)
-	        System.out.println(args[i]);
+        if (args.length < 1){
+            System.out.println("start game server error without setting args");
+        }
+        game = Integer.parseInt(args[0]);
+
+        ServerStart start = new ServerStart("game"+args[0]);
         GameServer server = new GameServer();
         GameManagerClient.instance().connectGameManager();
         server.checkGmConnected();
         DbClient.instance().connectDbServer();
         server.checkDbConnected();
+        server.start(start);
+        server.checkStartSuccess(start);
         server.startService();
     }
 }
