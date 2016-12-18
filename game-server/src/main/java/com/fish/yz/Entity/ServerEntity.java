@@ -2,6 +2,7 @@ package com.fish.yz.Entity;
 
 import com.fish.yz.CallBack;
 import com.fish.yz.ClientProxy;
+import com.fish.yz.GameManagerClient;
 import com.fish.yz.Repo;
 import com.fish.yz.protobuf.Protocol;
 import com.google.protobuf.ByteString;
@@ -61,23 +62,7 @@ public class ServerEntity {
 	}
 
     public void callServerMethod(Protocol.EntityMailbox dstMb, ServerEntity entity, String methodName, String parameters, CallBack cb){
-        Protocol.ForwardMessageHeader.Builder fmsg = Protocol.ForwardMessageHeader.newBuilder();
-        Protocol.EntityMailbox.Builder mb = Protocol.EntityMailbox.newBuilder();
-        mb.setEntityid(entity.getId());
-        mb.setServerinfo(Repo.instance().serverInfo);
-        fmsg.setSrcmb(mb);
-        fmsg.setDstmb(dstMb);
-
-        Protocol.EntityMessage.Builder emb = Protocol.EntityMessage.newBuilder();
-        emb.setId(dstMb.getEntityid());
-        emb.setMethod(ByteString.copyFromUtf8(methodName));
-        if (null != parameters && !"".equals(parameters))
-            emb.setParameters(ByteString.copyFromUtf8(parameters));
-        emb.setRoutes(fmsg.build().toByteString());
-
-        Protocol.Request.Builder rb = Protocol.Request.newBuilder();
-        rb.setCmdId(Protocol.Request.CmdIdType.EntityMessage);
-        rb.setExtension(Protocol.EntityMessage.request, emb.build());
+        GameManagerClient.instance().forwardEntityMessage(dstMb, entity, methodName, parameters, cb);
     }
 
 

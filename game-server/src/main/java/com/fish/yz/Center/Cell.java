@@ -36,9 +36,11 @@ public class Cell extends ServerEntity {
         thisMb.setServerinfo(Repo.instance().serverInfo);
 
         if (centerMb != null){
-            this.callServerMethod(centerMb, this, "regCell", thisMb.toString(), null);
+            String param = String.format("{'id': \'%s\', 'ip': \'%s\', 'port': %d}", thisMb.build().getEntityid().toStringUtf8(), Repo.instance().serverInfo.getIp().toStringUtf8(), Repo.instance().serverInfo.getPort());
+            this.callServerMethod(centerMb, this, "regCell", param, null);
         } else {
             //todo: 还未完成注册等等
+            System.out.println("not get the center!!");
         }
 
     }

@@ -19,6 +19,8 @@ public class EntityFactory {
 		if (id == null)
 			id = ObjectId.get();
 
+		System.out.println("create entity " + entityName + " with id : " + id);
+
 		if ("ServerBoot".equals(entityName)){
 			return new ServerBoot(id);
 		}

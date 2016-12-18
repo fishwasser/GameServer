@@ -1,6 +1,7 @@
 package com.fish.yz.Entity;
 
 
+import com.fish.yz.Center.HomeCell;
 import com.fish.yz.DefaultCallBack;
 import com.fish.yz.protobuf.Protocol;
 import com.fish.yz.util.GameAPI;
@@ -19,7 +20,7 @@ public class ServerStart {
     Map<String, Boolean> entityState = new HashMap<String, Boolean>();
 
     private boolean started = false;
-    private String game;
+    private String gameName;
 
 	public ServerStart(String game){
 	    // game1上启动RoomCenter
@@ -27,22 +28,25 @@ public class ServerStart {
 	    // game2上启动HomeCell
 	    gameCell.put("game2", "HomeCell");
 
-	    this.game = game;
+	    this.gameName = game;
 	}
 
     /**
      * 开启配置功能
      */
 	public void startGame(){
-	    final DefaultCallBack cb = new DefaultCallBack() {
+	    DefaultCallBack cb = new DefaultCallBack(Protocol.Request.CmdIdType.FunctionalMessage) {
             @Override
             public void onCompleted(Protocol.FunctionalMessage msg) {
                 try {
-                    System.out.println("reg entity back : " + msg);
-
                     Protocol.GmReturnVal ret = Protocol.GmReturnVal.parseFrom(msg.getParameters());
+                    System.out.println("reg entity back : " + ret);
                     if (ret.getReturnStatus()){
                         String name = ret.getReturnVal().toStringUtf8();
+                        if (name.equals("HomeCell")){
+                            HomeCell cell = (HomeCell)entity;
+                            cell.startConnect();
+                        }
                         if (entityState.containsKey(name)) {
                             entityState.put(name, true);
                             for(boolean state : entityState.values()){
@@ -64,17 +68,17 @@ public class ServerStart {
 
 	    // 实例化entity并注册到全局
         for (Map.Entry<String, String> entry : gameCenter.entrySet()){
-            if (this.game.equals(entry.getKey())){
+            if (this.gameName.equals(entry.getKey())){
                 ServerEntity entity = GameAPI.createEntityLocally(entry.getValue(), null);
-                GameAPI.registerEntityGlobally(entry.getValue(), entity, cb);
-                entityState.put(entry.getKey(), false);
+                GameAPI.registerEntityGlobally(entry.getValue(), entity, cb.setEntity(entity));
+                entityState.put(entry.getValue(), false);
             }
         }
         for (Map.Entry<String, String> entry : gameCell.entrySet()){
-            if (this.game.equals(entry.getKey())){
+            if (this.gameName.equals(entry.getKey())){
                 ServerEntity entity = GameAPI.createEntityLocally(entry.getValue(), null);
-                GameAPI.registerEntityGlobally(entry.getValue(), entity, cb);
-                entityState.put(entry.getKey(), false);
+                GameAPI.registerEntityGlobally(entry.getValue(), entity, cb.setEntity(entity));
+                entityState.put(entry.getValue(), false);
             }
         }
     }

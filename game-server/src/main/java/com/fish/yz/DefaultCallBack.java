@@ -1,5 +1,6 @@
 package com.fish.yz;
 
+import com.fish.yz.Entity.ServerEntity;
 import com.fish.yz.protobuf.Protocol;
 import com.google.protobuf.ByteString;
 import org.bson.types.ObjectId;
@@ -12,6 +13,8 @@ public abstract class DefaultCallBack implements CallBack {
 	public ObjectId id;
 	public ByteString bsid;
 	public Protocol.Request.CmdIdType careType = Protocol.Request.CmdIdType.DBMessage;
+
+	public ServerEntity entity;
 
     public DefaultCallBack(){
         this(ObjectId.get(), Protocol.Request.CmdIdType.DBMessage);
@@ -27,6 +30,11 @@ public abstract class DefaultCallBack implements CallBack {
 		this.bsid = ByteString.copyFromUtf8(this.id.toString());
 		Repo.instance().callbacks.put(this.bsid, this);
 	}
+
+	public DefaultCallBack setEntity(ServerEntity entity){
+	    this.entity = entity;
+	    return this;
+    }
 
 	public void onResult(Protocol.Request request) {
 		Repo.instance().callbacks.remove(this.bsid);

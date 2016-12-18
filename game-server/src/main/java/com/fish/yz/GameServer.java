@@ -5,6 +5,7 @@ import com.fish.yz.protobuf.Protocol;
 
 import com.fish.yz.service.GameServiceHandler;
 import com.fish.yz.util.Config;
+import com.fish.yz.util.GameAPI;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ExtensionRegistry;
 import io.netty.bootstrap.ServerBootstrap;
@@ -15,6 +16,8 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 
 /**
  * Hello world!
@@ -105,8 +108,8 @@ public class GameServer {
         if (args.length < 1){
             System.out.println("start game server error without setting args");
         }
-        game = Integer.parseInt(args[0]);
 
+        game = Integer.parseInt(args[0]);
         ServerStart start = new ServerStart("game"+args[0]);
         GameServer server = new GameServer();
         GameManagerClient.instance().connectGameManager();

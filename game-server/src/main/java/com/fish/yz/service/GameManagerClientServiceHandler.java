@@ -1,17 +1,21 @@
 package com.fish.yz.service;
 
-import com.fish.yz.CallBack;
-import com.fish.yz.GameManagerClient;
-import com.fish.yz.Repo;
-import com.fish.yz.ServerInfoHolder;
+import com.fish.yz.*;
+import com.fish.yz.Entity.EntityManager;
+import com.fish.yz.Entity.ServerEntity;
 import com.fish.yz.protobuf.Protocol;
+import com.fish.yz.util.GameAPI;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoop;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -25,6 +29,9 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 		System.out.println("received from game manager, " + request);
 
 		switch (request.getCmdId()){
+			case EntityMessage:
+                forwardEntityMessage(channelHandlerContext, request);
+				break;
 			case FunctionalMessage:
 				Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);
 				switch (fm.getFunc()){
@@ -36,9 +43,6 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 						break;
 					case UNREG_ENTITY:
 						unregEntity(channelHandlerContext, fm);
-					case FORWARD_ENTITY_MESSAGE:
-						forwardEntityMessage(channelHandlerContext, fm);
-						break;
 					case GMRETURNVAL:
 						gmReturn(channelHandlerContext, request);
 						break;
@@ -59,9 +63,41 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 		Repo.instance().entities.remove(msg.getEntityUniqName().toStringUtf8());
 	}
 
-	public void forwardEntityMessage(ChannelHandlerContext ctx, Protocol.FunctionalMessage fm) throws InvalidProtocolBufferException {
-		System.out.println("forward entity message todo but not do");
-	}
+    public void forwardEntityMessage(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {
+        System.out.println("forward entity message " + request);
+        Protocol.EntityMessage em = request.getExtension(Protocol.EntityMessage.request);
+        Protocol.ForwardMessageHeader msg = Protocol.ForwardMessageHeader.parseFrom(em.getRoutes());
+        ObjectId id = new ObjectId(em.getId().toStringUtf8());
+        ServerEntity entity = EntityManager.getEntity(id);
+        String methodName = em.getMethod().toStringUtf8();
+        if (entity == null) {
+            System.out.println("call entity message not has entity " + id);
+            return;
+        }
+        Method method = GameAPI.getDeclaredMethod(entity, methodName, Document.class);
+        Document doc = Document.parse(em.getParameters().toStringUtf8());
+        if (method != null){
+            try {
+                method.invoke(entity, doc);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+//        Class cls = entity.getClass();
+//        Document doc = Document.parse(em.getParameters().toStringUtf8());
+//        try {
+//            Method method = cls.getDeclaredMethod(methodName, Document.class);
+//            if (method == null) {
+//                System.out.println("call entity message not find method");
+//                return;
+//            }
+//            method.invoke(entity, doc);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+    }
 
 	public void gmReturn(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {
         Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);

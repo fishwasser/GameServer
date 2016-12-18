@@ -147,7 +147,7 @@ public class GameManagerClient {
 		Protocol.EntityMailbox.Builder mb = Protocol.EntityMailbox.newBuilder();
 		mb.setEntityid(entity.getId());
 		mb.setServerinfo(Repo.instance().serverInfo);
-		fmsg.setSrcmb(mb);
+		fmsg.setSrcmb(mb.build());
 		fmsg.setDstmb(dstMb);
         if (cb != null)
             fmsg.setCallbackId(cb.getId());
