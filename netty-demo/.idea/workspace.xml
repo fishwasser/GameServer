@@ -28,11 +28,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ServerBoot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerBoot.java">
+      <file leaf-file-name="Center.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
+            <state relative-caret-position="728">
+              <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#505#529#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Cell.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Cell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="35" column="57" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameServer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="113" column="45" lean-forward="false" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -41,66 +66,66 @@
       <file leaf-file-name="ServerEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+            <state relative-caret-position="202">
+              <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/util/GameAPI.java">
+      <file leaf-file-name="GameManagerClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameManagerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+            <state relative-caret-position="355">
+              <caret line="159" column="51" lean-forward="true" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerBoot.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerBoot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="44" column="108" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="108" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#createAvatar#0;class#ServerBoot#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Repo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Repo.java">
+      <file leaf-file-name="ServerStart.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="15" column="55" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="55" />
+            <state relative-caret-position="179">
+              <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
               <folding>
-                <element signature="e#473#505#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#422#438#0" expanded="true" />
+                <element signature="e#488#504#0" expanded="true" />
+                <element signature="e#558#575#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Center.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java">
+      <file leaf-file-name="GameServiceHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameServiceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#356#380#0" expanded="true" />
-                <element signature="e#404#405#0" expanded="true" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="19">
+              <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cell.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Cell.java">
+      <file leaf-file-name="GameManagerClientServiceHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-                <element signature="e#449#450#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="572">
+              <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,7 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list</find>
       <find>listda</find>
       <find>findOne(</find>
       <find>co9ll</find>
@@ -145,6 +169,10 @@
       <find>updateGameServerInfo</find>
       <find>registry</find>
       <find>GameClientServiceHandler</find>
+      <find>game1.port</find>
+      <find>reg entity back</find>
+      <find>register</find>
+      <find>forward</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -155,17 +183,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Unit/EntityFactory.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Unit/ServerEntity.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Unit/ServerBoot.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/util/COnfig.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/util/Config.java" />
         <option value="$PROJECT_DIR$/../netty-client-demo/src/main/java/com/fish/yz/NettyClient.java" />
-        <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/config.properties" />
         <option value="$PROJECT_DIR$/../netty-client-demo/src/main/java/com/fish/yz/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/config.properties" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/config.properties" />
-        <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/config.properties" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/States.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/GameManagerClient.java" />
         <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/GameManagerServer.java" />
@@ -176,36 +197,43 @@
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DbClient.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/CallBack.java" />
         <option value="$PROJECT_DIR$/../db-server/src/test/java/com/fish/yz/AppTest.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/EntityFactory.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DefaultCallBack.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/GameOiOClient.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/service/DbServiceHandler.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/DbClientServiceHandler.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameServiceHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/service/GameFinderServiceHandler.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/FMongoClients.java" />
         <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/Repo.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameManagerClient.java" />
-        <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/service/GameManagerServiceHandler.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/ClientProxy.java" />
         <option value="$PROJECT_DIR$/../netty-client-demo/src/main/java/com/fish/yz/service/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/NettyServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/ProxyManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/service/GateServiceHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/service/GameClientServiceHandler.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameServer.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerStart.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerBoot.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerAvatar.java" />
         <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/DbServer.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Stub.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Home.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/HomeCell.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/RoomCenter.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/config.properties" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Repo.java" />
-        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/util/GameAPI.java" />
+        <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/config.properties" />
+        <option value="$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fish/yz/config.properties" />
+        <option value="$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/service/GameManagerServiceHandler.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DefaultCallBack.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerStart.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerEntity.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/EntityFactory.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameManagerClient.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/util/GameAPI.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameServiceHandler.java" />
         <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Cell.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java" />
+        <option value="$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameServer.java" />
       </list>
     </option>
   </component>
@@ -241,6 +269,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -291,7 +321,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
+              <option name="myItemId" value="gamemanager-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,7 +331,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
+              <option name="myItemId" value="gamemanager-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -315,7 +345,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
+              <option name="myItemId" value="gamemanager-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -341,7 +371,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
+              <option name="myItemId" value="gamemanager-server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -362,56 +392,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-client-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-client-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-client-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -585,60 +565,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netty-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -664,7 +592,7 @@
       <recent name="E:\gameideal\maven\gamemanager-server\src\main\java\com\fish\yz" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GameServer">
+  <component name="RunManager" selected="Application.CellServer ">
     <configuration default="false" name="NettyServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -693,9 +621,9 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.fish.yz.DbServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -846,7 +774,7 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="false" name="GameServer" type="Application" factoryName="Application">
+    <configuration default="false" name="CenterServer" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.fish.yz.App" />
@@ -866,7 +794,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="CenterServer " type="Application" factoryName="Application">
+    <configuration default="false" name="CellServer " type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.fish.yz.App" />
@@ -907,8 +835,8 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Application.GameServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.CenterServer " />
+      <item index="0" class="java.lang.String" itemvalue="Application.CenterServer" />
+      <item index="1" class="java.lang.String" itemvalue="Application.CellServer " />
       <item index="2" class="java.lang.String" itemvalue="Application.GameManagerServer" />
       <item index="3" class="java.lang.String" itemvalue="Application.NettyServer" />
       <item index="4" class="java.lang.String" itemvalue="Application.DbServer" />
@@ -916,9 +844,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.NettyServer" />
-        <item index="1" class="java.lang.String" itemvalue="Application.NettyClient" />
-        <item index="2" class="java.lang.String" itemvalue="Application.DbServer" />
+        <item index="0" class="java.lang.String" itemvalue="Application.DbServer" />
+        <item index="1" class="java.lang.String" itemvalue="Application.NettyServer" />
+        <item index="2" class="java.lang.String" itemvalue="Application.NettyClient" />
       </list>
     </recent_temporary>
   </component>
@@ -948,31 +876,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1874" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18522602" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25414938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30290458" sideWeight="0.5041368" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.045309167" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45954356" sideWeight="0.4958632" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1874311" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2987552" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25414938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37240663" sideWeight="0.4958632" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32883817" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5373444" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -988,159 +916,24 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="25" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="Repo.instance().ip" language="JAVA" />
+        <watch expression="doc.getString(&quot;mb&quot;)" language="JAVA" />
+        <watch expression="thisMb.build().toString()" language="JAVA" />
+        <watch expression="thisMb.build().toByteString()" language="JAVA" />
+        <watch expression="Protocol.EntityMailbox.parseFrom(thisMb.build().toByteString())" language="JAVA" />
+        <watch expression="Protocol.EntityMailbox.parseFrom(ByteString.copyFromUtf8(thisMb.build().toString()))" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/org/mongodb/bson/3.4.0/bson-3.4.0-sources.jar!/org/bson/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DbClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="223" column="16" lean-forward="false" selection-start-line="223" selection-start-column="16" selection-end-line="223" selection-end-column="16" />
-          <folding>
-            <element signature="e#2872#2873#0" expanded="false" />
-            <element signature="e#2919#2920#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../db-server/src/test/java/com/fish/yz/AppTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
-          <caret line="114" column="15" lean-forward="false" selection-start-line="114" selection-start-column="15" selection-end-line="114" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/EntityFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="e#200#201#0" expanded="false" />
-            <element signature="e#254#255#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/protobuf/Protocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="19327" column="42" lean-forward="true" selection-start-line="19327" selection-start-column="42" selection-end-line="19327" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/CallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DefaultCallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final-sources.jar!/io/netty/channel/ThreadPerChannelEventLoop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final-sources.jar!/io/netty/channel/oio/AbstractOioChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/GameManagerServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="62" column="30" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final-sources.jar!/io/netty/util/concurrent/EventExecutorGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final-sources.jar!/io/netty/channel/Channel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3506">
-          <caret line="179" column="7" lean-forward="true" selection-start-line="179" selection-start-column="7" selection-end-line="179" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/GameManagerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="66" column="11" lean-forward="true" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fish/yz/GameOiOClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="38" column="61" lean-forward="true" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
-          <folding>
-            <element signature="method#callServerInfo#0;class#GameOiOClient#0" expanded="false" />
-            <element signature="method#connectServer#0;class#GameOiOClient#0" expanded="false" />
-            <element signature="method#entityMessage#0;class#GameOiOClient#0" expanded="false" />
-            <element signature="method#equals#0;class#GameOiOClient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fish/yz/GameOiOClientsMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="122" column="39" lean-forward="true" selection-start-line="122" selection-start-column="39" selection-end-line="122" selection-end-column="39" />
-          <folding>
-            <element signature="method#instance#0;class#GameOiOClientsMgr#0" expanded="false" />
-            <element signature="method#checkAllConnected#0;class#GameOiOClientsMgr#0" expanded="false" />
-            <element signature="e#3904#4438#0" expanded="false" />
-            <element signature="e#4437#4438#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/service/DbServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="32" column="82" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="48" column="49" lean-forward="false" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/DbClientServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="80" column="82" lean-forward="false" selection-start-line="80" selection-start-column="82" selection-end-line="80" selection-end-column="82" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,52 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/Repo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/ServerInfoHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="956">
-          <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/service/GameManagerServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1648">
-          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/States.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fish/yz/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/GeneratedMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="190" column="23" lean-forward="false" selection-start-line="190" selection-start-column="23" selection-end-line="190" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1218,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="50" column="55" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="582">
           <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,14 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
           <caret line="52" column="43" lean-forward="true" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-          <folding>
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#651#652#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
-            <element signature="e#1061#1062#0" expanded="false" />
-            <element signature="e#1131#1132#0" expanded="false" />
-            <element signature="e#1173#1174#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,30 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="582">
           <caret line="87" column="23" lean-forward="true" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
-          <folding>
-            <element signature="method#connectServerReply#0;class#GameClientServiceHandler#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="49" column="69" lean-forward="false" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding>
-            <element signature="e#195#196#0" expanded="false" />
-            <element signature="e#222#223#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1323,21 +1039,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1690">
-          <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fish/yz/service/GateServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="33" column="64" lean-forward="true" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,89 +1050,299 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/Repo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/CallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/DbClientServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="66" column="39" lean-forward="false" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../db-server/src/main/java/com/fish/yz/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fish/yz/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Repo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="15" column="55" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="55" />
+        <state relative-caret-position="364">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
-            <element signature="e#473#505#0" expanded="true" />
+            <element signature="e#473#505#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/util/GameAPI.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="673">
+          <caret line="359" column="25" lean-forward="false" selection-start-line="359" selection-start-column="25" selection-end-line="359" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerBoot.java">
+    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/ServerInfoHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
-          <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="39" />
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Override.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/ClientProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1118">
-          <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="32" />
+        <state relative-caret-position="810">
+          <caret line="93" column="47" lean-forward="true" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
           <folding>
             <element signature="method#destroyEntity#0;class#ClientProxy#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameManagerClient.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/GeneratedMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="162" column="5" lean-forward="true" selection-start-line="142" selection-start-column="4" selection-end-line="162" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="615" column="0" lean-forward="false" selection-start-line="615" selection-start-column="0" selection-end-line="615" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java">
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/DefaultCallBack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="598">
+          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding>
+            <element signature="e#517#518#0" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+            <element signature="e#654#655#0" expanded="false" />
+            <element signature="e#694#695#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/HomeCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/EntityFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="21" column="79" lean-forward="false" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/util/GameAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/RoomCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerBoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="44" column="108" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="108" />
+          <folding>
+            <element signature="method#createAvatar#0;class#ServerBoot#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/protobuf/Protocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="6776" column="0" lean-forward="false" selection-start-line="6776" selection-start-column="0" selection-end-line="6776" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../gamemanager-server/src/main/java/com/fish/yz/service/GameManagerServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="117" column="52" lean-forward="true" selection-start-line="117" selection-start-column="52" selection-end-line="117" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#356#380#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
+            <element signature="e#422#438#0" expanded="true" />
+            <element signature="e#488#504#0" expanded="true" />
+            <element signature="e#558#575#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Entity/ServerEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        <state relative-caret-position="202">
+          <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="45" selection-end-line="64" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameManagerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="159" column="51" lean-forward="true" selection-start-line="159" selection-start-column="51" selection-end-line="159" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/TextFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/AbstractMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="105" column="27" lean-forward="true" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
+          <folding>
+            <element signature="e#3845#3846#0" expanded="false" />
+            <element signature="e#3892#3893#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/MessageLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="73" column="7" lean-forward="false" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar!/com/google/protobuf/AbstractMessageLite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/service/GameManagerClientServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        <state relative-caret-position="199">
+          <caret line="35" column="57" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="35" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/GameServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="113" column="45" lean-forward="false" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../game-server/src/main/java/com/fish/yz/Center/Center.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#505#529#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
           </folding>
         </state>
       </provider>

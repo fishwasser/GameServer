@@ -15,6 +15,7 @@ import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
 import java.net.InetSocketAddress;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -63,16 +64,13 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 	        case UNREG_ENTITY:
 	        	unregEntity(ctx, request);
 	        	break;
-	        //case FORWARD_ENTITY_MESSAGE:
-	        //	forwardEntityMessage(ctx, request);
-	        //	break;
         }
 	}
 
 	public void regEntity(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {
-		System.out.println("reg entity " + request);
 		Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);
 		Protocol.GlobalEntityRegMsg msg = Protocol.GlobalEntityRegMsg.parseFrom(fm.getParameters());
+        System.out.println("reg entity " + msg);
 		boolean regOK = false;
 		if (!Repo.instance().entities.containsKey(msg.getEntityUniqName().toStringUtf8())){
 			Protocol.EntityMailbox mailbox = msg.getMailbox();
@@ -87,15 +85,17 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 			replyBuilder.setType(Protocol.GmReturnVal.CallbackType.REG_ENTITY_MAILBOX);
 			replyBuilder.setCallbackId(msg.getCallbackId());
 			replyBuilder.setReturnStatus(regOK);
+			replyBuilder.setReturnVal(msg.getEntityUniqName());
 
 			Protocol.FunctionalMessage.Builder fb = Protocol.FunctionalMessage.newBuilder();
 			fb.setFunc(Protocol.FunctionalMessage.FuncType.GMRETURNVAL);
 			fb.setParameters(replyBuilder.build().toByteString());
-			Protocol.Request.Builder rb = Protocol.Request.newBuilder();
 
+			Protocol.Request.Builder rb = Protocol.Request.newBuilder();
 			rb.setCmdId(Protocol.Request.CmdIdType.FunctionalMessage);
 			rb.setExtension(Protocol.FunctionalMessage.request, fb.build());
-			ctx.channel().writeAndFlush(fb.build());
+
+			ctx.channel().writeAndFlush(rb.build());
 		}
 	}
 
@@ -140,7 +140,7 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 
 			rb.setCmdId(Protocol.Request.CmdIdType.FunctionalMessage);
 			rb.setExtension(Protocol.FunctionalMessage.request, fb.build());
-			ctx.channel().writeAndFlush(fb.build());
+			ctx.channel().writeAndFlush(rb.build());
 		}
 	}
 
@@ -154,6 +154,7 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 		ctx.channel().attr(Repo.serverInfoKey).set(holder);
 
 		updateGameServerInfo();
+		updateEntities(ctx);
     }
 
     public void regGateServer(ChannelHandlerContext ctx, Protocol.Request request){
@@ -239,8 +240,7 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 		ServerInfoHolder holder = ctx.channel().attr(Repo.serverInfoKey).get();
 		switch (holder.type){
 			case Game:
-				Repo.instance().games.remove(holder);
-				updateGameServerInfo();
+			    removeGame(holder);
 				break;
 			case Db:
 				Repo.instance().dbs.remove(holder);
@@ -251,4 +251,36 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 		}
 		ctx.channel().close();
 	}
+
+    /**
+     * 同步entities
+     */
+	public void updateEntities(ChannelHandlerContext ctx){
+        for (Map.Entry<String, Protocol.EntityMailbox> entry : Repo.instance().entities.entrySet()){
+            Protocol.GlobalEntityRegMsg.Builder gre = Protocol.GlobalEntityRegMsg.newBuilder();
+            gre.setEntityUniqName(ByteString.copyFromUtf8(entry.getKey()));
+            gre.setMailbox(entry.getValue());
+
+            Protocol.FunctionalMessage.Builder fb = Protocol.FunctionalMessage.newBuilder();
+            fb.setFunc(Protocol.FunctionalMessage.FuncType.REG_ENTITY);
+            fb.setParameters(gre.build().toByteString());
+
+            Protocol.Request.Builder rb = Protocol.Request.newBuilder();
+            rb.setCmdId(Protocol.Request.CmdIdType.FunctionalMessage);
+            rb.setExtension(Protocol.FunctionalMessage.request, fb.build());
+			ctx.channel().writeAndFlush(rb.build());
+        }
+    }
+
+	private void removeGame(ServerInfoHolder holder){
+        Repo.instance().games.remove(holder);
+        updateGameServerInfo();
+        Map<String, Protocol.EntityMailbox> tmp = Repo.instance().entities;
+        Repo.instance().entities = new HashMap<String, Protocol.EntityMailbox>();
+        for(Map.Entry<String, Protocol.EntityMailbox> entry : tmp.entrySet()){
+            if (entry.getValue().getServerinfo() != holder.si){
+                Repo.instance().entities.put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
 }
