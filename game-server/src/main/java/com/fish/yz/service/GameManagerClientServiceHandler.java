@@ -5,6 +5,7 @@ import com.fish.yz.Entity.EntityManager;
 import com.fish.yz.Entity.ServerEntity;
 import com.fish.yz.protobuf.Protocol;
 import com.fish.yz.util.GameAPI;
+import com.fish.yz.util.ReflectUtil;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.Channel;
@@ -67,6 +68,7 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
         System.out.println("forward entity message " + request);
         Protocol.EntityMessage em = request.getExtension(Protocol.EntityMessage.request);
         Protocol.ForwardMessageHeader msg = Protocol.ForwardMessageHeader.parseFrom(em.getRoutes());
+        Protocol.EntityMailbox srcMb = msg.getSrcmb();
         ObjectId id = new ObjectId(em.getId().toStringUtf8());
         ServerEntity entity = EntityManager.getEntity(id);
         String methodName = em.getMethod().toStringUtf8();
@@ -74,29 +76,17 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
             System.out.println("call entity message not has entity " + id);
             return;
         }
-        Method method = GameAPI.getDeclaredMethod(entity, methodName, Document.class);
-        Document doc = Document.parse(em.getParameters().toStringUtf8());
+        Method method = GameAPI.getDeclaredMethod(entity, methodName, Protocol.EntityMailbox.class, Document.class);
+	    Document doc = Document.parse(em.getParameters().toStringUtf8());
         if (method != null){
             try {
-                method.invoke(entity, doc);
+                method.invoke(entity, srcMb, doc);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             }
         }
-//        Class cls = entity.getClass();
-//        Document doc = Document.parse(em.getParameters().toStringUtf8());
-//        try {
-//            Method method = cls.getDeclaredMethod(methodName, Document.class);
-//            if (method == null) {
-//                System.out.println("call entity message not find method");
-//                return;
-//            }
-//            method.invoke(entity, doc);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
 	public void gmReturn(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {

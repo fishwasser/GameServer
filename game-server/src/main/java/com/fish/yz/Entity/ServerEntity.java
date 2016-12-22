@@ -65,7 +65,6 @@ public class ServerEntity {
         GameManagerClient.instance().forwardEntityMessage(dstMb, entity, methodName, parameters, cb);
     }
 
-
 	public void save(){
 		System.out.println("i want to save but not do it");
 	}

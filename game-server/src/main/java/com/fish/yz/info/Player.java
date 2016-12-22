@@ -7,7 +7,6 @@ package com.fish.yz.info;
 public class Player extends CombatUnit {
 
     public Player(){
-
     }
 
 }

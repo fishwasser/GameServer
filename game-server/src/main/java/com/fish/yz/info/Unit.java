@@ -1,5 +1,7 @@
 package com.fish.yz.info;
 
+import com.fish.yz.util.Quaternion;
+import com.fish.yz.util.Vector3;
 import org.bson.types.ObjectId;
 
 /**
@@ -15,7 +17,13 @@ public class Unit {
     public float moveSpeed;
     public float turnSpeed;
 
-    public Unit(){}
+	public Unit(){
+		this(ObjectId.get());
+	}
+
+    public Unit(ObjectId id){
+        this.id = id;
+    }
 
     public void updateStates(Vector3 pos, Quaternion rot, Vector3 forward){
         this.pos = pos;

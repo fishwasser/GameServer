@@ -6,4 +6,8 @@ package com.fish.yz.info;
  */
 public class CombatUnit extends Unit {
 
+	public CombatUnit(){
+		this.initLoad();
+	}
+
 }

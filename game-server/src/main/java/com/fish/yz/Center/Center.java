@@ -25,7 +25,7 @@ public class Center extends ServerEntity {
         super(entityId);
     }
 
-    public void regCell(Document doc) {
+    public void regCell(Protocol.EntityMailbox emb, Document doc) {
         String id = doc.getString("id");
         String ip = doc.getString("ip");
         int port = doc.getInteger("port");

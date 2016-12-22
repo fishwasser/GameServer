@@ -3,6 +3,7 @@ package com.fish.yz;
 import io.netty.channel.Channel;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by xscn2426 on 2016/11/23.
@@ -10,9 +11,9 @@ import java.util.*;
  */
 public class ProxyManager {
 	// client id : GameOiO
-	public Map<String, GameOiOClient> clientGameMap = new HashMap<String, GameOiOClient>();
+	public Map<String, GameOiOClient> clientGameMap = new ConcurrentHashMap<String, GameOiOClient>();
 	// client id : channel
-	public Map<String, Channel> clientChannelMap = new HashMap<String, Channel>();
+	public Map<String, Channel> clientChannelMap = new ConcurrentHashMap<String, Channel>();
 
 	private static ProxyManager ins;
 
@@ -30,12 +31,12 @@ public class ProxyManager {
 		return clientChannelMap.get(clientId);
 	}
 
-	public void removeChannelByClientId(String clientId){
+	public synchronized void removeChannelByClientId(String clientId){
 		if (clientChannelMap.containsKey(clientId))
 			clientChannelMap.remove(clientId);
 	}
 
-	public void setChannelClientId(String clientId, Channel channel){
+	public synchronized void setChannelClientId(String clientId, Channel channel){
 		System.out.println("set channel for " + clientId);
 		clientChannelMap.put(clientId, channel);
 	}
@@ -44,18 +45,19 @@ public class ProxyManager {
 		return clientGameMap.get(clientId);
 	}
 
-	public void setGameClientId(String clientId, GameOiOClient client){
+	public synchronized void setGameClientId(String clientId, GameOiOClient client){
 		clientGameMap.put(clientId, client);
 	}
 
-	public void removeGameByClientId(String clientId){
+	public synchronized void removeGameByClientId(String clientId){
 		if (clientGameMap.containsKey(clientId))
 			clientGameMap.remove(clientId);
 	}
+
 	/**
-	 * 申请一个　GameOiOClient
+	 * 申请一个 GameOiOClient
 	 * @param clientId
-	 * @return
+	 * @return GameOiOClient
 	 */
 	public GameOiOClient applyGameClient(String clientId){
 		return GameOiOClientsMgr.instance().applyOneClient();

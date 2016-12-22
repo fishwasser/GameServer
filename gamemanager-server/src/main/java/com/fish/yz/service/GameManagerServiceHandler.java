@@ -16,6 +16,7 @@ import io.netty.util.concurrent.GenericFutureListener;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -103,8 +104,9 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
 		System.out.println("unreg entity " + request);
 		Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);
 		Protocol.GlobalEntityRegMsg msg = Protocol.GlobalEntityRegMsg.parseFrom(fm.getParameters());
-		if (Repo.instance().entities.containsKey(msg.getEntityUniqName().toStringUtf8())){
-			Repo.instance().entities.remove(msg.getEntityUniqName().toStringUtf8());
+		String entityName = msg.getEntityUniqName().toStringUtf8();
+		if (Repo.instance().entities.containsKey(entityName)){
+			Repo.instance().entities.remove(entityName);
 			for (Channel channel : Repo.instance().games.values()){
 				channel.writeAndFlush(request);
 			}
@@ -273,14 +275,7 @@ public class GameManagerServiceHandler extends SimpleChannelInboundHandler<Proto
     }
 
 	private void removeGame(ServerInfoHolder holder){
-        Repo.instance().games.remove(holder);
+		Repo.instance().removeGame(holder);
         updateGameServerInfo();
-        Map<String, Protocol.EntityMailbox> tmp = Repo.instance().entities;
-        Repo.instance().entities = new HashMap<String, Protocol.EntityMailbox>();
-        for(Map.Entry<String, Protocol.EntityMailbox> entry : tmp.entrySet()){
-            if (entry.getValue().getServerinfo() != holder.si){
-                Repo.instance().entities.put(entry.getKey(), entry.getValue());
-            }
-        }
     }
 }

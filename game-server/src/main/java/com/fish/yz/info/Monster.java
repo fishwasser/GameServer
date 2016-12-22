@@ -5,4 +5,8 @@ package com.fish.yz.info;
  *
  */
 public class Monster extends CombatUnit {
+
+	public Monster(){
+	}
+
 }
