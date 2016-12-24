@@ -16,20 +16,43 @@ import java.util.Map;
 public class DocumentCodecs {
 
 	public static String encoder(Object obj){
+		return String.format("{%s}", encoderInter(obj));
+	}
+
+	/**
+	 * 不包含外{}
+	 * @param obj
+	 * @return
+	 */
+	private static String encoderInter(Object obj){
 		if (obj instanceof Protocol.ServerInfo){
 			Protocol.ServerInfo si = (Protocol.ServerInfo)obj;
-			return String.format("{\"$si\" : {'ip': '%s', 'port': %d}}", si.getIp().toStringUtf8(), si.getPort());
+			return String.format("'$si' : {'ip': '%s', 'port': %d}", si.getIp().toStringUtf8(), si.getPort());
+		} else if (obj instanceof Protocol.EntityMailbox){
+			Protocol.EntityMailbox emb = (Protocol.EntityMailbox)obj;
+			if (emb.hasServerinfo())
+				return String.format("'$emb' : {'entityid': '%s', %s}", emb.getEntityid().toStringUtf8(), encoderInter(emb.getServerinfo()));
+			else
+				return String.format("'$emb' : {'entityid': '%s'}", emb.getEntityid().toStringUtf8());
 		}
-		return "{}";
+		return "";
 	}
 
 	public static Object decode(Document doc) {
 		// ServerInfo 解码
-		Map<Object, Object> m = (Map<Object, Object>)doc.get("$si");
-		if (m != null){
+		if (doc.get("$si") != null){
+			Document si = (Document)doc.get("$si");
 			Protocol.ServerInfo.Builder sibb = Protocol.ServerInfo.newBuilder();
-			sibb.setIp(ByteString.copyFromUtf8((String)m.get("ip")));
-			sibb.setPort((Integer) m.get("port"));
+			sibb.setIp(ByteString.copyFromUtf8((String)si.get("ip")));
+			sibb.setPort((Integer) si.get("port"));
+			return sibb.build();
+		}
+		if (doc.get("$emb") != null){
+			Document emb = (Document)doc.get("$emb");
+			Protocol.EntityMailbox.Builder sibb = Protocol.EntityMailbox.newBuilder();
+			sibb.setEntityid(ByteString.copyFromUtf8((String)emb.get("entityid")));
+			if (emb.get("$si") != null)
+				sibb.setServerinfo((Protocol.ServerInfo)decode(emb));
 			return sibb.build();
 		}
 		return null;

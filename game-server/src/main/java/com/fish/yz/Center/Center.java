@@ -25,20 +25,8 @@ public class Center extends ServerEntity {
         super(entityId);
     }
 
-    public void regCell(Protocol.EntityMailbox emb, Document doc) {
-        String id = doc.getString("id");
-        String ip = doc.getString("ip");
-        int port = doc.getInteger("port");
-
-        Protocol.ServerInfo.Builder sb = Protocol.ServerInfo.newBuilder();
-        sb.setIp(ByteString.copyFromUtf8(ip));
-        sb.setPort(port);
-
-        Protocol.EntityMailbox.Builder mb = Protocol.EntityMailbox.newBuilder();
-        mb.setEntityid(ByteString.copyFromUtf8(new ObjectId(id).toString()));
-        mb.setServerinfo(sb.build());
-
-        Protocol.EntityMailbox mailbox = mb.build();
+    public void regCell(Protocol.EntityMailbox emb, Protocol.EntityMailbox mailbox) {
+        System.out.println("regCell ......... " + mailbox);
         if (!this.cells.contains(mailbox)){
             this.cells.add(mailbox);
             System.out.println("register cell " + mailbox);
@@ -49,6 +37,5 @@ public class Center extends ServerEntity {
         int rndIdx = new Random().nextInt(this.cells.size());
         return this.cells.get(rndIdx);
     }
-
 
 }

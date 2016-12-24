@@ -38,24 +38,4 @@ public class GameAPI {
     public static void registerEntityGlobally(String entityName, ServerEntity entity, CallBack callback){
         GameManagerClient.instance().regEntity(entityName, entity, callback);
     }
-
-    /**
-     * 循环向上转型, 获取对象的 DeclaredMethod
-     * @param object : 子类对象
-     * @param methodName : 父类中的方法名
-     * @return 父类中的方法对象
-     */
-    public static Method getDeclaredMethod(Object object, String methodName, Class<?>... pclazz){
-        Method method = null;
-        for(Class<?> clazz = object.getClass(); clazz != Object.class; clazz = clazz.getSuperclass()) {
-            try {
-                method = clazz.getDeclaredMethod(methodName, pclazz);
-                return method;
-            } catch (Exception e) {
-                // must do nothing
-            }
-        }
-
-        return null;
-    }
 }

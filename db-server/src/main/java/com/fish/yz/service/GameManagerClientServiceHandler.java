@@ -19,9 +19,6 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
 	protected void channelRead0(ChannelHandlerContext channelHandlerContext, Protocol.Request request) throws Exception {
 		System.out.println("received from game manager, " + request);
 
-		Protocol.Request r = Protocol.Request.parseFrom(request.toByteArray());
-		System.out.println("received from game manager, " + r);
-
 		switch (request.getCmdId()){
 			case FunctionalMessage:
 				Protocol.FunctionalMessage fm = request.getExtension(Protocol.FunctionalMessage.request);

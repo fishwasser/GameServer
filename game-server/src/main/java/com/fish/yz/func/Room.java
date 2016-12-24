@@ -4,7 +4,9 @@ import com.fish.yz.protobuf.Protocol;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by fishman on 19/12/2016.
@@ -14,25 +16,31 @@ public class Room {
 	// 房间id
     public ObjectId id;
     // 房间里的所有队员，包括队长
-    public List<ObjectId> members = new ArrayList<ObjectId>();
-    // 房间关联的远端game
+    public Map<ObjectId, Protocol.EntityMailbox> members = new HashMap<ObjectId, Protocol.EntityMailbox>();
+	// 房间关联的远端game
     public Protocol.EntityMailbox remoteMB;
     // 这个房间的队长
     public ObjectId leader;
 
-    public Room(ObjectId roomId, ObjectId avatarId){
+    public Room(ObjectId roomId, ObjectId avatarId, Protocol.EntityMailbox emb){
         this.id = roomId;
         this.leader = avatarId;
-        this.members.add(avatarId);
+        this.members.put(avatarId, emb);
+    }
+
+    public List<ObjectId> memberIds(){
+    	List<ObjectId> ret = new ArrayList<ObjectId>();
+    	ret.addAll(members.keySet());
+    	return ret;
     }
 
 	/**
 	 * 更新队长
-	 * @param id
+	 * @param avatarId
 	 */
-	public void updateLeader(ObjectId id){
-	    if (this.members.contains(id)){
-	    	this.leader = id;
+	public void updateLeader(ObjectId avatarId, Protocol.EntityMailbox emb){
+	    if (this.members.containsKey(avatarId)){
+	    	this.leader = avatarId;
 	    } else {
 	    	System.out.println("update leader not in member");
 	    }
@@ -40,10 +48,10 @@ public class Room {
 
 	/**
 	 * 加入房间
-	 * @param id
+	 * @param avatarId
 	 */
-	public void join(ObjectId id){
-        members.add(id);
+	public void join(ObjectId avatarId, Protocol.EntityMailbox emb){
+        members.put(avatarId, emb);
     }
 
 	/**
@@ -64,9 +72,5 @@ public class Room {
 
 	public ObjectId getLeader() {
 		return leader;
-	}
-
-	public void setLeader(ObjectId leader) {
-		this.leader = leader;
 	}
 }

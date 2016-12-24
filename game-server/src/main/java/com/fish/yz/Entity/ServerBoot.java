@@ -33,10 +33,10 @@ public class ServerBoot extends ServerEntity{
 		this.proxy.callClientMethod("becomePlayer", "{}", this.id);
 	}
 
-	public void login(Document doc){
-        System.out.println("login" + doc);
-        this.account = doc.getString("account");
-        this.password = doc.getString("password");
+	public void login(String account, String password){
+        System.out.println("login " + account + " , " + password);
+        this.account = account;
+        this.password = password;
 
         doLogin();
     }

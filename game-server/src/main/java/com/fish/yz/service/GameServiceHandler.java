@@ -7,6 +7,7 @@ import com.fish.yz.Entity.EntityFactory;
 import com.fish.yz.Entity.ServerEntity;
 import com.fish.yz.protobuf.Protocol;
 import com.fish.yz.util.GameAPI;
+import com.fish.yz.util.ReflectUtil;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -82,30 +83,8 @@ public class GameServiceHandler extends SimpleChannelInboundHandler<Protocol.Req
                 System.out.println("call entity message not has entity " + id);
                 return;
             }
-			Method method = GameAPI.getDeclaredMethod(entity, methodName, Document.class);
-			Document doc = Document.parse(entitymsg.getParameters().toStringUtf8());
-			if (method != null){
-				try {
-					method.invoke(entity, doc);
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (InvocationTargetException e) {
-					e.printStackTrace();
-				}
-			}
-
-            /*Class cls = entity.getClass();
-            Document doc = Document.parse(entitymsg.getParameters().toStringUtf8());
-            try {
-                Method method = cls.getDeclaredMethod(methodName, Document.class);
-                if (method == null){
-                    System.out.println("call entity message not find method");
-                    return;
-                }
-                method.invoke(entity, doc);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
+	        Document doc = Document.parse(entitymsg.getParameters().toStringUtf8());
+	        ReflectUtil.invokeParamMethod(entity, methodName, doc);
         }
     }
 

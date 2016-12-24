@@ -76,17 +76,8 @@ public class GameManagerClientServiceHandler extends SimpleChannelInboundHandler
             System.out.println("call entity message not has entity " + id);
             return;
         }
-        Method method = GameAPI.getDeclaredMethod(entity, methodName, Protocol.EntityMailbox.class, Document.class);
 	    Document doc = Document.parse(em.getParameters().toStringUtf8());
-        if (method != null){
-            try {
-                method.invoke(entity, srcMb, doc);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        }
+        ReflectUtil.invokeParamMethod(entity, methodName, doc, srcMb);
     }
 
 	public void gmReturn(ChannelHandlerContext ctx, Protocol.Request request) throws InvalidProtocolBufferException {

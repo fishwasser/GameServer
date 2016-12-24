@@ -1,5 +1,6 @@
 package com.fish.yz.Center;
 
+import com.fish.yz.Repo;
 import com.fish.yz.func.Room;
 import com.fish.yz.protobuf.Protocol;
 import org.bson.Document;
@@ -31,8 +32,8 @@ public class RoomCenter extends Center {
     public void startGame(Protocol.EntityMailbox emb, ObjectId avatarId, ObjectId roomId){
         if (this.rooms.containsKey(roomId)){
             Room room = this.rooms.get(roomId);
-            if (room.leader != avatarId){
-	            System.out.println("only leader can start game!");
+            if (!room.leader.equals(avatarId)){
+	            System.out.println("only leader can start game! " + room.leader + " , " + avatarId);
 	            return;
             }
             if (room.getRemoteMB() == null) {
@@ -43,16 +44,40 @@ public class RoomCenter extends Center {
 
 	        List<Object> param = new ArrayList<Object>();
 	        param.add(roomId);
-	        param.add(room.members);
+	        param.add(room.memberIds());
 	        Document doc = new Document("p", param);
             this.callServerMethod(mb, this, "startGame", doc.toJson(), null);
         }
     }
 
+	public void broadOp(Protocol.EntityMailbox emb, Document doc){
+    	ObjectId teamId = doc.getObjectId("roomId");
+    	if (this.rooms.containsKey(teamId)){
+		    Room room = this.rooms.get(teamId);
+		    Protocol.EntityMailbox mb = room.getRemoteMB();
+
+		    this.callServerMethod(mb, this, "broadOp", doc.toJson(), null);
+	    }
+	}
+
+	public void onUpdateOp(Protocol.EntityMailbox emb, ObjectId teamId){
+		System.out.println("onUpdateOp " + teamId);
+		if (this.rooms.containsKey(teamId)){
+			Room room = this.rooms.get(teamId);
+			for (Map.Entry<ObjectId, Protocol.EntityMailbox> entry : room.members.entrySet()){
+				Protocol.EntityMailbox mb = entry.getValue();
+				List<Object> param = new ArrayList<Object>();
+				param.add(teamId);
+				Document d = new Document("p", param);
+				this.callServerMethod(mb, this, "onUpdateOp", d.toJson(), null);
+			}
+		}
+	}
+
     public List<ObjectId> getRoomMembers(Protocol.EntityMailbox emb, ObjectId roomId){
         Room room = this.rooms.get(roomId);
         if (room != null){
-            return room.members;
+            return room.memberIds();
         }
         return null;
     }
@@ -61,13 +86,20 @@ public class RoomCenter extends Center {
         if (roomId == null){
             roomId = ObjectId.get();
         }
-        this.rooms.put(roomId, new Room(roomId, avatarId));
+        System.out.println("create team in center");
+        this.rooms.put(roomId, new Room(roomId, avatarId, emb));
+
+	    List<Object> list = new ArrayList<Object>();
+	    list.add(roomId);
+	    list.add(true);
+	    Document doc = new Document("p", list);
+        this.callBackMethod(emb, "onCreateTeam", doc);
     }
 
     public void joinRoom(Protocol.EntityMailbox emb, ObjectId avatarId, ObjectId roomId){
         if (this.rooms.containsKey(roomId)){
             Room room = this.rooms.get(roomId);
-            room.join(avatarId);
+            room.join(avatarId, emb);
         }
     }
 
@@ -77,5 +109,17 @@ public class RoomCenter extends Center {
             room.left(avatarId);
         }
     }
+
+	private void callBackMethod(Protocol.EntityMailbox emb, String methodName, Document doc){
+		Protocol.EntityMailbox.Builder thisMb = Protocol.EntityMailbox.newBuilder();
+		thisMb.setEntityid(this.getId());
+		thisMb.setServerinfo(Repo.instance().serverInfo);
+
+		if (emb != null){
+			this.callServerMethod(emb, this, methodName, doc.toJson(), null);
+		} else {
+			System.out.println("not get the center!!");
+		}
+	}
 
 }

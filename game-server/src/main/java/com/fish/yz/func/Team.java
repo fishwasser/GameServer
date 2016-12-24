@@ -1,8 +1,12 @@
 package com.fish.yz.func;
 
+import com.fish.yz.Repo;
 import com.fish.yz.info.Unit;
+import com.fish.yz.protobuf.Protocol;
+import com.fish.yz.util.GameAPI;
 import com.fish.yz.util.Quaternion;
 import com.fish.yz.util.Vector3;
+import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import java.util.HashMap;
@@ -44,12 +48,12 @@ public class Team {
 	}
 
 	/**
-	 * 更新队伍中的人的状态
-	 * @param id
-	 * @param seq
+	 * 更新队伍中的玩家的状态
 	 */
-	public void updateOp(ObjectId id, int seq){
-		System.out.println("update one unit's state");
+	public void updateOp(Protocol.EntityMailbox emb, Document doc){
+		System.out.println("update one unit's state " + doc);
+
+
 	}
 
 	public void tick(){
